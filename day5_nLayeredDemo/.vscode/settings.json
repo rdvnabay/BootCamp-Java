@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "src/jLogger",
+        "src/core",
+        "src/entities/abstracts",
+        "src/entities/concretes",
+        "src/dataAccess/abstracts",
+        "src/dataAccess/concretes",
+        "src/business/abstracts",
+        "src/business/concretes"   
+    ]
+}
