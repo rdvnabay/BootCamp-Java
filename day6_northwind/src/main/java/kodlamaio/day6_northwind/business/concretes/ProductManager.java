@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.day6_northwind.business.abstracts.ProductService;
 import kodlamaio.day6_northwind.core.utilities.results.DataResult;
 import kodlamaio.day6_northwind.core.utilities.results.Result;
-import kodlamaio.day6_northwind.core.utilities.results.SuccessDateResult;
+import kodlamaio.day6_northwind.core.utilities.results.SuccessDataResult;
 import kodlamaio.day6_northwind.core.utilities.results.SuccessResult;
 import kodlamaio.day6_northwind.dataAccess.abstracts.ProductDao;
 import kodlamaio.day6_northwind.entities.concretes.Product;
@@ -28,7 +28,7 @@ public class ProductManager implements ProductService{
     
     @Override
     public DataResult<List<Product>> getAll() {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.findAll(),"Data listelendi");		
     }
 
@@ -40,59 +40,59 @@ public class ProductManager implements ProductService{
 
     @Override
     public DataResult<Product> getByProductName(String productName) {
-        return new SuccessDateResult<Product>
+        return new SuccessDataResult<Product>
         (this.productDao.getByProductName(productName),"Data listelendi");		
     }
 
     @Override
     public DataResult<Product> getByProductNameAndCategoryId(String productName, int categoryId) {
-        return new SuccessDateResult<Product>
+        return new SuccessDataResult<Product>
         (this.productDao.getByProductNameAndCategory_CategoryId(productName,categoryId),"Data listelendi");		
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId) {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.getByProductNameOrCategory(productName,categoryId),"Data listelendi");	
     }
 
     @Override
     public DataResult<List<Product>> getByCategoryIdIn(List<Integer> categories) {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.getByCategoryIn(categories),"Data listelendi");	
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameContains(String productName) {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.getByProductNameContains(productName),"Data listelendi");	
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameStartsWith(String productName) {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.getByProductNameStartsWith(productName),"Data listelendi");	
     }
 
     @Override
     public DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId) {
-        return new SuccessDateResult<List<Product>>
+        return new SuccessDataResult<List<Product>>
         (this.productDao.getByProductNameOrCategory(productName,categoryId),"Data listelendi");	
     }
     @Override
     public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
         Pageable  pageable=PageRequest.of(pageNo-1, pageSize);
-        return new SuccessDateResult<List<Product>>(this.productDao.findAll(pageable).getContent());
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(pageable).getContent());
     }
     @Override
     public DataResult<List<Product>> getAllSorted() {
         Sort sort=Sort.by(Direction.DESC,"productName");
-        return new SuccessDateResult<List<Product>>(this.productDao.findAll(sort));
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(sort));
     }
 
     @Override
     public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
-      return new SuccessDateResult<List<ProductWithCategoryDto>>(
+      return new SuccessDataResult<List<ProductWithCategoryDto>>(
           this.productDao.getProductWithCategoryDetails(),"Data listelendi" );
     }
     
