@@ -4,6 +4,7 @@ import java.util.List;
 import kodlamaio.day6_northwind.core.utilities.results.DataResult;
 import kodlamaio.day6_northwind.core.utilities.results.Result;
 import kodlamaio.day6_northwind.entities.concretes.Product;
+import kodlamaio.day6_northwind.entities.concretes.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
     DataResult<List<Product>> getAll();
@@ -17,4 +18,5 @@ public interface ProductService {
     DataResult<List<Product>> getByProductNameContains(String productName);
     DataResult<List<Product>> getByProductNameStartsWith(String productName);
     DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }

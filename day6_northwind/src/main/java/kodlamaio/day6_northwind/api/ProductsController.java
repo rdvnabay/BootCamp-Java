@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.day6_northwind.entities.concretes.Product;
+import kodlamaio.day6_northwind.entities.concretes.dtos.ProductWithCategoryDto;
 import kodlamaio.day6_northwind.business.abstracts.ProductService;
 import kodlamaio.day6_northwind.core.utilities.results.DataResult;
 import kodlamaio.day6_northwind.core.utilities.results.Result;
@@ -59,5 +60,10 @@ public class ProductsController {
    @GetMapping("/getAllSorted")
    public DataResult<List<Product>> getAllSorted() {
       return this.productService.getAllSorted();
-}
+   }
+
+   @GetMapping("/getProductWithCategoryDetails")
+   public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+      return this.productService.getProductWithCategoryDetails();
+    }
 }
