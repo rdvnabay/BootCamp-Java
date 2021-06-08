@@ -21,3 +21,10 @@
 ```markdown
  #7.Gün - Swagger
 ```
+```markdown
+ #8.Gün - One to Many Relationship, Sorted and Pagination
+```
+```markdown
+ #9.Gün - Data Transfer Object (Dto) and Validation
+```
+
